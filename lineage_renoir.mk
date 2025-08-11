@@ -10,6 +10,17 @@ $(call inherit-product, device/xiaomi/renoir/device.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+TARGET_BOOT_ANIMATION_RES := 1080
+WITH_GMS := true
+TARGET_USES_MINI_GAPPS := true
+BUILD_BCR := true
+
+ifeq ($(TARGET_USES_MINI_GAPPS),true)
+PRODUCT_PACKAGES += \
+    TurboAdapter
+endif
+TARGET_DISABLE_EPPE := true
+
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := renoir
 PRODUCT_MANUFACTURER := Xiaomi
